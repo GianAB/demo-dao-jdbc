@@ -12,8 +12,8 @@ public class Programa {
 		
 		VendedorDao vdao = DaoFabrica.criarVendedorDao();
 		
+		System.out.println("teste 1: vendedor findById");
 		Vendedor v = vdao.findById(3); 
-		
 		System.out.println(v);
 
 	}
