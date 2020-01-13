@@ -20,9 +20,11 @@ public class Programa {
 		
 		System.out.println("teste 2: vendedor findByDepartment");
 		List<Vendedor> dpto = vdao.findByDepartment(new Departamento(2, null));
-		
 		dpto.forEach(System.out::println);
 		
+		System.out.println("teste 3: vendedor findAll");
+		dpto = vdao.findAll();
+		dpto.forEach(System.out::println);
 		
 		
 	}
