@@ -1,7 +1,6 @@
 package aplicacao;
 
 import java.text.ParseException;
-import java.util.Date;
 import java.util.List;
 
 import modelo.dao.DaoFabrica;
@@ -28,10 +27,10 @@ public class Programa {
 		dpto.forEach(System.out::println);
 		
 		/*
-		 * System.out.println("\n=== teste 4: vendedor inset"); Vendedor vendedor = new
-		 * Vendedor(null, "Giliard", "giliard@gmail.com", new Date(), 5000.0, new
-		 * Departamento(2, null)); vdao.insert(vendedor); System.out.println("Insert: "
-		 * + vendedor.getId());
+		 * System.out.println("\n=== teste 4: vendedor inset"); 
+		 * Vendedor vendedor = new Vendedor(null, "Giliard", "giliard@gmail.com", new Date(), 5000.0, new
+		 * Departamento(2, null)); vdao.insert(vendedor); 
+		 * System.out.println("Insert: " + vendedor.getId());
 		 */
 		System.out.println("\n=== teste 5: vendedor update");
 		v = vdao.findById(9);
@@ -39,7 +38,12 @@ public class Programa {
 		vdao.update(v);
 		
 		System.out.println("Update completo!");
-		System.out.println("Novo valor:\n "+v);
+		System.out.println("Novo valor:\n " + v);
+		
+		System.out.println("\n=== teste 6: vendedor delete");
+		vdao.deleteById(11);
+		System.out.println("Vendedor deletado!");
+		
 	}
 
 }

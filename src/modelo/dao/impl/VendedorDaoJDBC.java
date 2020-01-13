@@ -76,7 +76,11 @@ public class VendedorDaoJDBC implements VendedorDao {
 			st.setInt(5, obj.getDepartamento().getId());
 			st.setInt(6, obj.getId());
 			
-			st.executeUpdate();
+			int linha = st.executeUpdate();
+			
+			if (linha == 0) {
+				throw new DbException("Id requisitado não existe!");
+			}
 			
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
@@ -88,7 +92,23 @@ public class VendedorDaoJDBC implements VendedorDao {
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		try {
+			st = conn.prepareStatement("DELETE FROM seller " + 
+									   "WHERE id = ?");
+			st.setInt(1, id);
+			
+			int linha = st.executeUpdate();
+			
+			if (linha == 0) {
+				throw new DbException("Id requisitado não existe!");
+			}
+			
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		}finally {
+			DB.closeStatement(st);
+		}
 
 	}
 
