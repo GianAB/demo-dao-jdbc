@@ -27,10 +27,19 @@ public class Programa {
 		dpto = vdao.findAll();
 		dpto.forEach(System.out::println);
 		
-		System.out.println("\n=== teste 4: vendedor inset");
-		Vendedor vendedor = new Vendedor(null, "Giliard", "giliard@gmail.com", new Date(), 5000.0, new Departamento(2, null));
-		vdao.insert(vendedor);
-		System.out.println("Insert: " + vendedor.getId());
+		/*
+		 * System.out.println("\n=== teste 4: vendedor inset"); Vendedor vendedor = new
+		 * Vendedor(null, "Giliard", "giliard@gmail.com", new Date(), 5000.0, new
+		 * Departamento(2, null)); vdao.insert(vendedor); System.out.println("Insert: "
+		 * + vendedor.getId());
+		 */
+		System.out.println("\n=== teste 5: vendedor update");
+		v = vdao.findById(9);
+		v.setNome("Giliard Antonio");
+		vdao.update(v);
+		
+		System.out.println("Update completo!");
+		System.out.println("Novo valor:\n "+v);
 	}
 
 }
