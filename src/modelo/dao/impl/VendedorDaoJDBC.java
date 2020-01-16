@@ -29,8 +29,10 @@ public class VendedorDaoJDBC implements VendedorDao {
 		PreparedStatement st = null;
 
 		try {
-			st = conn.prepareStatement("INSERT INTO seller" + "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
-					+ "VALUES " + "(?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+			st = conn.prepareStatement("INSERT INTO seller" + 
+									   "(Name, Email, BirthDate, BaseSalary, DepartmentId) " + 
+									   "VALUES " + "(?, ?, ?, ?, ?)", 
+									   Statement.RETURN_GENERATED_KEYS);
 
 			st.setString(1, obj.getNome());
 			st.setString(2, obj.getEmail());
@@ -57,7 +59,6 @@ public class VendedorDaoJDBC implements VendedorDao {
 		} finally {
 			DB.closeStatement(st);
 		}
-
 	}
 
 	@Override
